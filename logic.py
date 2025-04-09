@@ -12,8 +12,8 @@ class time_logic():
             log.info(f"Current time: {current_time.tm_year}, {current_time.tm_mday} ,{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}")
             if current_time.tm_hour in range(1,6) or current_time.tm_hour in [23,24]:
                 threading.Thread(target=time_logic.is_the_time_right, args=(current_time,), daemon=True).start()
-
                 messagebox.askokcancel("Quit", "Do you want to leave?")
+                t.sleep(3600)
             t.sleep(1)
     
     def is_the_time_right(current_time) -> None:
