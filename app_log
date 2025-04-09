@@ -165,3 +165,11 @@ INFO:root:Countdown is in progress
 INFO:root:msbox is closed
 INFO:root:Thread is terminated
 INFO:root:Clock check suspended for 1 hour
+INFO:root:Current time: 2025, 10 ,1:24:50
+INFO:root:Thread started
+INFO:root:msbox is called
+INFO:root:Note down time: 2025, 10 ,1:24:50
+INFO:root:Countdown is in progress
+INFO:root:msbox is closed
+INFO:root:Thread is terminated
+INFO:root:Clock check suspended for 1 hour

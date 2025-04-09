@@ -9,7 +9,6 @@ class window():
         root = tk.Tk()
         root.title("Main Window")
         root.geometry("300x200")
-        root.withdraw()
         root.attributes("-topmost", True)
         root.iconify()
 
@@ -17,4 +16,5 @@ class window():
 
         root.mainloop()
 
-window.main_window()
+if __name__ ==  '__main__':
+    window.main_window()
