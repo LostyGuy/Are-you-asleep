@@ -11,15 +11,10 @@ class time_logic():
             current_time = t.localtime()
             log.info(f"Current time: {current_time.tm_year}, {current_time.tm_mday} ,{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}")
             if current_time.tm_hour in range(1,6) or current_time.tm_hour in [23,24]:
-                #There will be one thread
-                time_logic.is_the_time_right(current_time)
-                ### From Here to
-                msbox = True
-                t.sleep(3600)
-                return current_time, msbox
-                ### Here will be second thread to start timer and show msbox at once
+                threading.Thread(target=time_logic.is_the_time_right, args=(current_time,), daemon=True).start()
+
+                messagebox.askokcancel("Quit", "Do you want to leave?")
             t.sleep(1)
-            msbox = False
     
     def is_the_time_right(current_time) -> None:
         note_down_time = current_time
