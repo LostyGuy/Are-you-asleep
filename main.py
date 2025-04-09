@@ -9,7 +9,9 @@ class window():
         root = tk.Tk()
         root.title("Main Window")
         root.geometry("300x200")
-        #root.withdraw()
+        root.withdraw()
+        root.attributes("-topmost", True)
+        root.iconify()
 
         time_logic.what_is_the_time(root)
 
