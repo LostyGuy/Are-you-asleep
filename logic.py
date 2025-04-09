@@ -26,6 +26,7 @@ class time_logic():
             while True:
                 if note_down_time.tm_min + 10 in [0,60]:
                     log.info("Shut down is in progress")
+                    log.info("------------------------")
                     time_logic.shutdown()
                     break
                 t.sleep(1)
@@ -35,6 +36,7 @@ class time_logic():
             while True:
                 if note_down_time.tm_min + 10 == t.localtime().tm_min:
                     log.info("Shut down is in progress")
+                    log.info("------------------------")
                     time_logic.shutdown()
                     break
                 t.sleep(1)
