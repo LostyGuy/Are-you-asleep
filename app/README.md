@@ -16,3 +16,10 @@ When the clock hit 11PM or any hour up to 6AM there will be a window with ```Yes
 ## Logic behind it
 
 Local time of PC will be main variable. As previously said each hour such pop-up will show and give user 10 minutes to respond. Unless PC will be shutted down. When user chose "YES" pop-up will disapear and reapear the next hour.
+
+---
+
+## Setup for auto-run
+
+Run ```setup.py``` that creates a folder on your C: drive named 'Are-you-asleep' with content from app folder.
+Then a file in startup folder will apear and app will run each time your PC starts.
