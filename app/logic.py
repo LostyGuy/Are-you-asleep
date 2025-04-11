@@ -45,7 +45,6 @@ class time_logic():
                     time_logic.shutdown()
                     break
                 t.sleep(1)
-
         else:
             log.info("Countdown is in progress")
             while True:
