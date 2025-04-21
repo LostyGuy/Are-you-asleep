@@ -2,8 +2,6 @@ from libraries import *
 
 class time_logic():
 
-    stop_thread = threading.Event()
-
     def shutdown() -> None:
         log.info("Shutting down the system...")
         log.info("------------------------")
@@ -14,16 +12,17 @@ class time_logic():
         if messagebox.askokcancel("Wakey Wakey", "Are you asleep?"):
             time_logic.shutdown()            
         else:
-            time_logic.stop_thread.set() 
+            task1.terminate()
             log.info("msbox is closed")
             log.info("Thread is terminated")
+
 
     def what_is_the_time(root) -> object:
         while True:
             current_time = t.localtime()
             if current_time.tm_hour in range(0,5) or current_time.tm_hour == 23:
                 log.info(f"Current time: {current_time.tm_year}, {current_time.tm_mday} ,{current_time.tm_hour}:{current_time.tm_min}:{current_time.tm_sec}")
-                task1 = threading.Thread(target=time_logic.is_the_time_right, args=(current_time,), daemon=True)
+                task1 = Process(target=time_logic.is_the_time_right, args=(current_time,))
                 log.info("Thread started")
                 task1.start()
                 time_logic.mssbox(task1)
