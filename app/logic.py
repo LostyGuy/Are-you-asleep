@@ -11,8 +11,8 @@ class time_logic():
                 log.info("Thread started")
                 task1.start()
                 if not time_logic.mssbox(task1):
-                    log.info("Clock check suspended for 1 hour")
-                    t.sleep(3600)
+                    log.info("Clock check suspended for 2 hour")
+                    t.sleep(2*3600) # <-- value of intervals between checks
                     log.info("Clock check resumed")
             t.sleep(1)
             

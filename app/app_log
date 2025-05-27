@@ -21,3 +21,25 @@ INFO:root:msbox is called
 INFO:root:Countdown beginned on: 2025, 21, 3:20:21
 INFO:root:Shutting down the system...
 INFO:root:Clock check suspended for 1 hour
+INFO:root:_______________________________________________________________________________________________________
+INFO:root:Start time: 2025, 21 ,23:37:39
+INFO:root:Thread started
+INFO:root:msbox is called
+INFO:root:Countdown beginned on: 2025, 21, 23:37:39
+INFO:root:msbox is closed
+INFO:root:Thread is terminated
+INFO:root:Clock check suspended for 1 hour
+INFO:root:_______________________________________________________________________________________________________
+INFO:root:Start time: 2025, 26 ,0:28:39
+INFO:root:Thread started
+INFO:root:msbox is called
+INFO:root:Countdown beginned on: 2025, 26, 0:28:39
+INFO:root:msbox is closed
+INFO:root:Thread is terminated
+INFO:root:Clock check suspended for 1 hour
+INFO:root:Clock check resumed
+INFO:root:Thread started
+INFO:root:msbox is called
+INFO:root:Countdown beginned on: 2025, 26, 1:28:42
+INFO:root:Shut down is in progress
+INFO:root:Shutting down the system...
