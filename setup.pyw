@@ -30,4 +30,4 @@ app_script_path = os.path.join(folder_path, 'main.py')
 with open(startup_file_path, 'w') as f:    
     f.write('Set WshShell = CreateObject("WScript.Shell")\n')
     f.write(f'WshShell.Run "pyw ""{app_script_path}""", 0\n')  # Use pyw to suppress the console
-    f.write('Set WshShell = Nothing.\n')
+    f.write('Set WshShell = Nothing')

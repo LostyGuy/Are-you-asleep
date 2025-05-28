@@ -38,12 +38,12 @@ class time_logic():
 
     def mssbox(task1) -> None:
         log.info("msbox is called")
-        if messagebox.askokcancel("Wakey Wakey", "Are you asleep?"):
+        if messagebox.askyesno("Wakey Wakey", "Are you asleep?"):
             time_logic.shutdown()            
         else:
             log.info("msbox is closed")
             task1.terminate()
-            log.info("Thread is terminated")
+            log.info("Thread is terminated") 
 
     def shutdown() -> None:
             log.info("Shutting down the system...")
