@@ -9,10 +9,11 @@ class time_logic():
             if current_time.tm_hour in range(0,5) or current_time.tm_hour == 23:
                 task1 = Process(target=time_logic.is_the_time_right, args=(current_time,))
                 log.info("Thread started")
-                task1.start()
+                task1.start() 
                 if not time_logic.mssbox(task1):
-                    log.info("Clock check suspended for 2 hour")
-                    t.sleep(2*3600) # <-- value of intervals between checks
+                    hour_number: int = 2
+                    log.info(f"Clock check suspended for {hour_number} hour")
+                    t.sleep(hour_number*3600) # <-- value of intervals between checks
                     log.info("Clock check resumed")
             t.sleep(1)
             
