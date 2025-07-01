@@ -9,19 +9,23 @@ log.basicConfig(level=log.INFO, filename=log_location, filemode='a',)
 
 class window():
 
-    def main_window() -> None:
+    def __init__(self) -> None:
         root = tk.Tk()
         root.title("Main Window")
         root.geometry("300x200")
         root.attributes("-topmost", True)
         root.iconify()
 
-        start_time = t.localtime()
+        self.start_time = t.localtime()
+        
+
+    def main_window(self, root) -> None:
+
         log.info(f"_______________________________________________________________________________________________________")
-        log.info(f"Start time: {start_time.tm_year}, {start_time.tm_mday} ,{start_time.tm_hour}:{start_time.tm_min}:{start_time.tm_sec}")
+        log.info(f"Start time: {self.start_time.tm_year}, {self.start_time.tm_mday} ,{self.start_time.tm_hour}:{self.start_time.tm_min}:{self.start_time.tm_sec}")
 
 
-        time_logic.what_is_the_time(root)
+        time_logic.time_check(root)
         
         root.mainloop()
 

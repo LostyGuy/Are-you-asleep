@@ -2,12 +2,13 @@ from libraries import *
 
 class time_logic():
 
+    def __init__(self) -> None:
+        self.current_time = t.localtime()
     
-    def what_is_the_time(root) -> object:
+    def time_check(self, root) -> object:
         while True:
-            current_time = t.localtime()
-            if current_time.tm_hour in range(0,5) or current_time.tm_hour == 23:
-                task1 = Process(target=time_logic.is_the_time_right, args=(current_time,))
+            if self.current_time.tm_hour in range(0,5) or self.current_time.tm_hour == 23:
+                task1 = Process(target=time_logic.is_the_time_right, args=(self.current_time,))
                 log.info("Thread started")
                 task1.start() 
                 if not time_logic.mssbox(task1):
@@ -17,21 +18,20 @@ class time_logic():
                     log.info("Clock check resumed")
             t.sleep(1)
             
-    def is_the_time_right(current_time) -> None:
-        note_down_time = current_time
-        log.info(f"Countdown beginned on: {note_down_time.tm_year}, {note_down_time.tm_mday}, {note_down_time.tm_hour}:{note_down_time.tm_min}:{note_down_time.tm_sec}")
+    def is_the_time_right(self) -> None:
+        log.info(f"Countdown beginned on: {self.current_time.tm_year}, {self.current_time.tm_mday}, {self.current_time.tm_hour}:{self.current_time.tm_min}:{self.current_time.tm_sec}")
 
         # Give user ten minutes to take action
-        if note_down_time.tm_min >= 50:
+        if self.current_time.tm_min >= 50:
             while True:
-                if note_down_time.tm_min + 10 in range(0,10) or note_down_time.tm_min + 10 == 60:
+                if self.current_time.tm_min + 10 in range(0,10) or self.current_time.tm_min + 10 == 60:
                     log.info("Shut down is in progress")
                     time_logic.shutdown()
                     break
                 t.sleep(1)
         else:
             while True:
-                if note_down_time.tm_min + 10 == t.localtime().tm_min:
+                if self.current_time.tm_min + 10 == t.localtime().tm_min:
                     log.info("Shut down is in progress")
                     time_logic.shutdown()
                     break
@@ -48,4 +48,4 @@ class time_logic():
 
     def shutdown() -> None:
             log.info("Shutting down the system...")
-            os.system("shutdown /s /t 1")
+            os.system("shutdown /s /t 120")
