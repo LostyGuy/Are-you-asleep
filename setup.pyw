@@ -21,13 +21,22 @@ startup_path = os.path.join(os.getenv('APPDATA'), 'Microsoft', 'Windows', 'Start
 # getenv() gets the value of an environment variable
 # os.path.join() then path.join() make a path from given arguments
 
+#Create the .ps1 file path
+ps1_file_path = os.path.join(folder_path, 'Are-you-asleep.ps1')
+
 # Create the startup file path
-startup_file_path = os.path.join(startup_path, 'Are-you-asleep.ps1')
+startup_file_path = os.path.join(startup_path, 'Are-you-asleep.vbs')
 
 # Path to run copied script
 app_script_path = os.path.join(folder_path, 'main.pyw')
 
 with open(startup_file_path, 'w') as f:    
+    f.write('Set objShell = CreateObject("Wscript.Shell")\n')
+    f.write(f'objShell.Run "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File ""{ps1_file_path}""", 0\n')
+    f.write('\n')
+    
+# Create the .ps1 file that will run the app script
+with open(ps1_file_path, 'w') as f:
+
     f.write(f'$scriptPath = "{app_script_path}"\n')
     f.write('Start-Process -FilePath $scriptPath\n')
-    f.write('\n')
