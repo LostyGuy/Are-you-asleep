@@ -33,10 +33,10 @@ app_script_path = os.path.join(folder_path, 'main.pyw')
 with open(startup_file_path, 'w') as f:    
     f.write('Set objShell = CreateObject("Wscript.Shell")\n')
     f.write(f'objShell.Run "powershell.exe -WindowStyle Hidden -ExecutionPolicy Bypass -File ""{ps1_file_path}""", 0\n')
-    f.write('\n')
     
 # Create the .ps1 file that will run the app script
 with open(ps1_file_path, 'w') as f:
 
-    f.write(f'$scriptPath = "{app_script_path}"\n')
-    f.write('Start-Process -FilePath $scriptPath\n')
+    f.write(f'$pythonw = "pythonw.exe"\n')
+    f.write('$scriptPath = "C:\Are-you-asleep\main.pyw"\n')
+    f.write('Start-Process -FilePath $pythonw -ArgumentList "$scriptPath"\n')
