@@ -21,7 +21,7 @@ class window():
 
     def main_window(self) -> None:
 
-        log.info(f"_______________________________________________________________________________________________________")
+        log.info(30 * "_")
         log.info(f"Start time: {self.start_time.tm_year}, {self.start_time.tm_mday} ,{self.start_time.tm_hour}:{self.start_time.tm_min}:{self.start_time.tm_sec}")
 
 
