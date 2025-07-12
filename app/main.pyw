@@ -2,9 +2,6 @@ from libraries import *
 from logic import time_logic
 
 log_location = os.path.join(os.path.dirname(__file__), "app_log")
-
-
-
 log.basicConfig(level=log.INFO, filename=log_location, filemode='a',)
 
 class window():
