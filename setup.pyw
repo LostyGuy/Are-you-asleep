@@ -3,9 +3,9 @@ from app.libraries import os, shutil
 class Setup:
 
     def __init__(self):
-        self.path_of_copied_app = r"C:\Are-you-asleep"
-        self.source_path_of_app =   os.path.join(os.path.dirname(__file__), "app") # os.path.dirname(__file__) get the path to where this file is located
-        self.WTS_command = fr'schtasks /create /sc onstart /tn "Are-you-asleep" /tr "pythonw.exe {os.path.join(self.path_of_copied_app, "main.pyw")}"'
+        self.path_of_copied_app: str = r"C:\Are-you-asleep"
+        self.source_path_of_app: str =   os.path.join(os.path.dirname(__file__), "app") # os.path.dirname(__file__) get the path to where this file is located
+        self.WTS_command: str = fr'schtasks /create /sc onstart /tn "Are-you-asleep" /tr "pythonw.exe {os.path.join(self.path_of_copied_app, "main.pyw")}"'
     
     def does_folder_exist(self) -> None:
         if not os.path.exists(self.path_of_copied_app):
