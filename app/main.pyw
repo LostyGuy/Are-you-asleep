@@ -1,22 +1,19 @@
-from libraries import *
+from libraries import os, log, tk, t
 from logic import time_logic
 
 log_location = os.path.join(os.path.dirname(__file__), "app_log")
-
-
-
 log.basicConfig(level=log.INFO, filename=log_location, filemode='a',)
 
 class window():
 
     def __init__(self) -> None:
-        self.root = tk.Tk()
+        self.root: tk = tk.Tk()
         self.root.title("Main Window")
         self.root.geometry("300x200")
         self.root.attributes("-topmost", True)
         self.root.iconify()
 
-        self.start_time = t.localtime()
+        self.start_time: t = t.localtime()
         
 
     def main_window(self) -> None:
